@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,
+    minimum-scale=1.0, user-scalable=no" />
+    <title>News Web App</title>
+    <link rel="stylesheet" href="src/assets/reset.min.css"/>
+    <style>
+        html {
+            font-size: 100px;
+        }
+
+        html, body {
+            height: 100%;
+            background: #f4f4f4;
+        }
+
+        #root {
+            margin: 0 auto;
+            max-width: 750px;
+            height: 100%;
+            background: #FFF;
+        }
+        .box {
+            width: 3.28rem;
+            height: 1.64rem;
+            text-align: center;
+            line-height: 1.64rem;
+            font-size: 0.4rem;
+            background-color: lightblue;
+        }
+    </style>
+    <script>
+        /* calculate rem px ratio in current device */$
+    
+        (function () {
+            const computed = () => {
+                let html = document.documentElement
+                let deviceW = html.clientWidth
+                let designW = 750
+                if (designW >= designW) {
+                    html.style.fontSize = '100px'
+                    return
+                }
+                let ratio = deviceW * 100 / designW
+                html.style.fontSize = ratio + 'px' 
+            }
+            computed();
+            window.addEventListener('resize', computed)
+        })()
+    </script>
+  </head>
+  <body>
+    <div id="root">
+        <div class="box">
+            This is a demo 
+        </div>
+    </div>
+  </body>
+</html>
