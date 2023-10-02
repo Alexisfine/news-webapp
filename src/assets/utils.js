@@ -43,7 +43,7 @@ const isNumeric = function isNumeric(obj) {
         !isNaN(obj - parseFloat(obj));
 };
 
-/* 函数的防抖和节流 */
+/* debounce and throttle */
 const clearTimer = function clearTimer(timer) {
     if (timer) clearTimeout(timer);
     return null;
@@ -91,7 +91,7 @@ const throttle = function throttle(func, wait) {
     };
 };
 
-/* 数组和对象的操作 */
+/* arrary and object operations */
 const mergeArray = function mergeArray(first, second) {
     if (typeof first === "string") first = Object(first);
     if (typeof second === "string") second = Object(second);
@@ -202,7 +202,7 @@ const clone = function clone(...params) {
     return result;
 };
 
-/* 设定具备有效期的localStorage存储方案 */
+/* localstorage with expire data */
 const storage = {
     set(key, value) {
         localStorage.setItem(key, JSON.stringify({
@@ -227,13 +227,13 @@ const storage = {
     }
 };
 
-/* 日期格式化 */
+/* format date */
 const formatTime = function formatTime(time, template) {
     if (typeof time !== "string") {
         time = new Date().toLocaleString('zh-CN', { hour12: false });
     }
     if (typeof template !== "string") {
-        template = "{0}年{1}月{2}日 {3}:{4}:{5}";
+        template = "{0}/{1}/{2} {3}:{4}:{5}";
     }
     let arr = [];
     if (/^\d{8}$/.test(time)) {
@@ -267,7 +267,7 @@ const utils = {
     formatTime
 };
 
-/* 处理冲突 */
+/* handle conflict */
 if (typeof window !== "undefined") {
     let $ = window._;
     utils.noConflict = function noConflict() {
@@ -278,5 +278,4 @@ if (typeof window !== "undefined") {
     };
 }
 
-/* 导出API */
 export default utils;
